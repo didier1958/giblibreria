@@ -1,0 +1,24 @@
+<?php
+
+$codigo = $_POST['codigo'];
+include 'conexion2.php';
+// Bring all DB values through SELECT
+$myQuery  = "select * from `tablainventario` where codigo=$codigo";
+//echo($myQuery);
+$consulta = $conexion2->query($myQuery);
+
+$valores = mysqli_fetch_array($consulta);
+// DB reading to variable
+//$codigo 
+$titulo           = $valores[1];
+$autor            = $valores[2];
+$genero           = $valores[3];
+$editorial        = $valores[4];
+$cantidad         = $valores[5];
+$fecha_publicacion = $valores[6];
+$edicion          = $valores[7];
+
+include "formu_modificar2.php";
+
+//echo('Aja'.$myQuery);
+?>
